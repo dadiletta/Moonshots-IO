@@ -82,15 +82,18 @@ public class Robot extends IterativeRobot {
 		turnSpeed2 = joystick.getYaw().scale(sensitivity::read);
 		// scaled and
 																	// inverted
-		reactor.onTriggered(joystick.getButton (7), () -> switchControls());
+		reactor.onTriggered(joystick.getButton(7), () -> switchControls());
 		
 		reactor.onTriggered(joystick.getButton(3), ()-> winch.setSpeed(1));
 		reactor.onUntriggered(joystick.getButton(3), () -> winch.stop());
 		reactor.onTriggered(joystick.getButton(4), ()-> winch.setSpeed(-1));
 		reactor.onUntriggered(joystick.getButton(4), () -> winch.stop());
 		
-		reactor.onTriggered(joystick.getButton (12), ()-> door.setSpeed(1));
-		reactor.onUntriggered(joystick.getButton (12), ()-> door.stop());
+		reactor.onTriggered(joystick.getButton(12), ()-> door.setSpeed(1));
+		reactor.onUntriggered(joystick.getButton(12), ()-> door.stop());
+		
+		reactor.onTriggered(joystick.getButton(11), ()-> winch.setSpeed(-1));
+		reactor.onUntriggered(joystick.getButton(11), () -> winch.stop());
 	}
 	
 	public void switchControls(){
